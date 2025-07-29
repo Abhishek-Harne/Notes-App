@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Notes App</h1>
+    </header>
+    
+    <div class="app-container">
+        <div class="sidebar">
+            <h1>Notes App</h1>
+            <div class="notes-section">
+                <h2 class="section-heading">Last 30 Days</h2>
+                <div class="notes-list" id="notesList">
+                    <!-- Notes will be displayed here -->
+                </div>
+            </div>
+            <div class="trash-section">
+                <div class="sidebar-actions">
+                    <div class="trash-icon" id="trashIcon">
+                        <span>🗑️<span class="trash-count" id="trashCount">0</span></span>
+                    </div>
+                    <button class="dark-mode-btn" id="darkModeBtn" title="Toggle dark mode">
+                        <span id="darkModeIcon">🌞</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="center-text">
+                    <h2>What are you up to today?</h2>
+                </div>
+                <div class="note-creation-form" id="noteCreationForm" style="display: none;">
+                    <div class="form-inputs">
+                        <div class="input-group">
+                            <label for="welcomeTitle">Title</label>
+                            <input type="text" id="welcomeTitle" placeholder="Title">
+                        </div>
+                        <div class="input-group">
+                            <label for="welcomeContent">Note</label>
+                            <textarea id="welcomeContent" placeholder="Note"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="note-display" id="noteDisplay" style="display: none;">
+                <div class="note-content">
+                    <div class="note-header">
+                        <h2 class="note-title" id="displayTitle" ondblclick="editNote()"></h2>
+                        <button class="delete-btn" id="deleteBtn">
+                            <span>🗑️</span>
+                        </button>
+                    </div>
+                    <p class="note-body" id="displayBody" ondblclick="editNote()"></p>
+                </div>
+                
+                <!-- Edit Form -->
+                <div class="edit-form" id="editForm" style="display: none;">
+                    <div class="edit-content">
+                        <div class="edit-header">
+                            <h2>Edit Note</h2>
+                            <div class="edit-actions">
+                                <button class="save-btn" id="saveBtn">
+                                    <span>💾</span>
+                                </button>
+                                <button class="cancel-btn" id="cancelBtn">
+                                    <span>✕</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="edit-inputs">
+                            <div class="input-group">
+                                <label for="editTitle">Title</label>
+                                <input type="text" id="editTitle" placeholder="Title">
+                            </div>
+                            <div class="input-group">
+                                <label for="editContent">Note</label>
+                                <textarea id="editContent" placeholder="Note"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="add-note-btn" id="addNoteBtn">
+        <span class="btn-icon">+</span>
+    </button>
+    
+    <!-- Animated Note Creation Form -->
+    <div class="animated-note-form" id="animatedNoteForm" style="display: none;">
+        <div class="form-container">
+            <div class="input-wrapper title-wrapper">
+                <label for="animatedTitle">Title</label>
+                <input type="text" id="animatedTitle" placeholder="Title">
+            </div>
+            <div class="input-wrapper content-wrapper">
+                <label for="animatedContent">Note</label>
+                <textarea id="animatedContent" placeholder="Note"></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="save-animated-btn" id="saveAnimatedBtn">
+                    <span>💾</span>
+                </button>
+                <button class="cancel-animated-btn" id="cancelAnimatedBtn">
+                    <span>✕</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Trash Modal -->
+    <div class="trash-modal" id="trashModal">
+        <div class="trash-content">
+            <div class="trash-header">
+                <h2>Deleted Notes</h2>
+                <button class="perma-delete-btn" id="permaDeleteBtn" title="Permanently delete all notes">
+                    🗑️
+                </button>
+                <button class="close-trash-btn" id="closeTrashBtn">
+                    <span>×</span>
+                </button>
+            </div>
+            <div class="deleted-notes-list" id="deletedNotesList">
+                <!-- Deleted notes will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
